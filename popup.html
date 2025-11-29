@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- AI EDIT ACCESS GRANTED -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishEye</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="popup-header">
+            <div class="brand-section">
+                <img src="icon88.jpg" alt="PhishEye Logo" class="app-logo-img">
+                <span class="app-logo-text">PhishEye</span>
+                <span class="version-badge">v3.0</span>
+            </div>
+            <div class="status-indicator" id="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Checking...</span>
+            </div>
+        </header>
+
+        <main class="popup-content">
+            <section class="protection-toggle-section card">
+                <div class="toggle-group">
+                    <label class="toggle-label" for="toggle-enabled">Phishing Protection</label>
+                    <label class="switch">
+                        <input type="checkbox" id="toggle-enabled" class="toggle-input">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <p class="section-description">Automatically scan websites for phishing attempts</p>
+            </section>
+
+            <section class="server-control-section card">
+                <div class="toggle-group">
+                    <label class="toggle-label" for="toggle-server">Backend Server</label>
+                    <label class="switch">
+                        <input type="checkbox" id="toggle-server" class="toggle-input">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <p class="section-description" id="server-status-text">Server status: Checking...</p>
+                <button class="btn btn-secondary" id="setup-instructions" style="margin-top: 10px; width: 100%; background-color: var(--primary-color); color: white;">Setup Instructions</button>
+            </section>
+
+            <section class="scan-details-section card">
+                <h3>Current Site Status</h3>
+                <div class="status-display" id="current-site-status">
+                    <span class="status-text">Scanning...</span>
+                </div>
+                <div class="last-scan-info">
+                    <span class="info-label">Last Checked:</span>
+                    <span class="info-value" id="last-scan">Never</span>
+                </div>
+            </section>
+            
+            <section class="stats-overview-section card">
+                <h3>Overall Stats</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="cached-count">0</div>
+                        <div class="stat-label">Cached</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="whitelist-count">0</div>
+                        <div class="stat-label">Whitelisted</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="blacklist-count">0</div>
+                        <div class="stat-label">Blacklisted</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="actions-section">
+                <button class="btn btn-primary" id="open-options">Settings</button>
+                <button class="btn btn-secondary" id="clear-cache">Clear Cache</button>
+            </section>
+        </main>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

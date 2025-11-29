@@ -1,0 +1,10 @@
+{
+  "subdomains": {},
+  "whitelist": ["google.com","github.com"],
+  "blacklist": ["known-phishing.com"],
+  "settings": {
+    "enabled": true,
+    "backend_url": "http://localhost:5000",
+    "cache_expiry_days": 7
+  }
+}

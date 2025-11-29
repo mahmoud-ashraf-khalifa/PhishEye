@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "PhishEye",
+  "version": "1.0.0",
+  "description": "Detect phishing sites using local PhishEye backend",
+  "permissions": ["tabs", "scripting", "activeTab", "storage", "downloads"],
+  "host_permissions": ["<all_urls>", "http://127.0.0.1/*", "http://localhost/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon88.jpg",
+      "48": "icon88.jpg",
+      "128": "icon88.jpg"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.css", "setup.html", "styles.css", "icon88.jpg"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "icons": {
+    "16": "icon88.jpg",
+    "48": "icon88.jpg",
+    "128": "icon88.jpg"
+  },
+  "favicon": "icon88.jpg"
+}
