@@ -99,19 +99,20 @@ content.js displays appropriate warning or allows access
 
 **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/PhishEye.git
+git clone https://github.com/mahmoud-ashraf-khalifa/PhishEye.git
 cd PhishEye
 ```
 
 **2. Set Up the Backend**
 ```bash
-cd unpacked/backend
-python -m venv PhishEye_venv
 # On Windows
-PhishEye_venv\Scripts\activate
-# On Mac/Linux
-source PhishEye_venv/bin/activate
+cd PhishEye\backend
+python -m venv PhishEye_venv
+pip install -r requirements.txt
 
+# On Mac/Linux
+cd PhishEye/backend
+python -m venv PhishEye_venv
 pip install -r requirements.txt
 ```
 
@@ -135,7 +136,7 @@ chrome://extensions/
 2. **Load Unpacked**
    - Click the "Load unpacked" button (appears after enabling Developer mode)
    - Navigate to your PhishEye project folder
-   - Select the `unpacked/` folder and confirm
+   - Select the `PhishEye/` folder and confirm
 
 3. **Verify Installation**
    - You should see PhishEye appear in your extensions list
@@ -156,28 +157,27 @@ chrome://extensions/
 ## 📁 Project Structure
 
 ```
-PhishEye/
-├── unpacked/                          # Chrome Extension root
-│   ├── manifest.json                  # Extension configuration (Manifest V3)
-│   ├── background.js                  # Service worker - URL scanning logic
-│   ├── content.js                     # Content script - warning UI injection
-│   ├── popup.html                     # Extension popup template
-│   ├── popup.js                       # Popup logic (stats, quick actions)
-│   ├── popup.css                      # Popup styling
-│   ├── options.html                   # Settings page
-│   ├── options.js                     # Settings logic (whitelist, blacklist, cache)
-│   ├── styles.css                     # Global extension styles
-│   ├── setup.html                     # Backend setup instructions
-│   ├── cache.json                     # Local scan result cache
-│   │
-│   └── backend/                       # Flask backend server
-│       ├── server.py                  # Flask app + API endpoints
-│       ├── phisheye_v6.py             # ML model logic + feature extraction
-│       ├── model-20.pkl               # Random Forest model (trained)
-│       ├── model-dns.pkl              # DNS reputation model
-│       ├── phishing_features_20_sampled.csv  # Training data (sample)
-│       ├── requirements.txt           # Python dependencies
-│       └── PhishEye_venv/             # Virtual environment
+PhishEye/                         # Chrome Extension root
+├── manifest.json                  # Extension configuration (Manifest V3)
+├── background.js                  # Service worker - URL scanning logic
+├── content.js                     # Content script - warning UI injection
+├── popup.html                     # Extension popup template
+├── popup.js                       # Popup logic (stats, quick actions)
+├── popup.css                      # Popup styling
+├── options.html                   # Settings page
+├── options.js                     # Settings logic (whitelist, blacklist,cache)
+├── styles.css                     # Global extension styles
+├── setup.html                     # Backend setup instructions
+├── cache.json                     # Local scan result cache
+|
+└── backend/                       # Flask backend server
+    ├── server.py                  # Flask app + API endpoints
+    ├── phisheye_v6.py             # ML model logic + feature extraction
+    ├── model-20.pkl               # Random Forest model (trained)
+    ├── model-dns.pkl              # DNS reputation model
+    ├── phishing_features_20_sampled.csv  # Training data (sample)
+    ├── requirements.txt           # Python dependencies
+    └── PhishEye_venv/             # Virtual environment
 ```
 
 ## 🛠️ Configuration
@@ -298,7 +298,7 @@ Response:
 - Verify the URL isn't whitelisted in Options
 
 **"Backend connection error"**
-- Is Flask server running? Try: `python unpacked/backend/server.py`
+- Is Flask server running? Try: `python PhishEye/backend/server.py`
 - Check port 5000 is available: `netstat -ano | findstr :5000` (Windows)
 - Verify CORS settings in `server.py` include your Chrome extension ID
 
@@ -366,3 +366,4 @@ Built with ❤️ by security enthusiasts who got tired of resetting compromised
 ---
 
 **Ready to protect yourself? Install PhishEye today.**
+
