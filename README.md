@@ -20,7 +20,7 @@ PhishEye combines machine learning with behavioral analysis to scan every URL yo
 ### **Two Smart Warning Systems**
 
 **🚨 Phishing Alert** - Psychological Design to Prevent Bypass
-- Large, impossible-to-miss red warning modal (scaled 1.2x for emphasis)
+- Large, impossible-to-miss red warning modal 
 - Prominent "Leave Site" button with psychological weighting
 - Tiny, hard-to-click "Skip" button positioned below
 - Animated threat descriptions showing real risks: account takeover, financial fraud, identity theft
@@ -30,7 +30,7 @@ PhishEye combines machine learning with behavioral analysis to scan every URL yo
 **🔒 Blacklist Enforcement** - Strict No-Bypass Mode
 - For parental controls, addiction recovery, company policies
 - Card-based modal (not full-screen) with neutral, non-threatening language
-- Only "Go Home" button—no skip option available
+- Only "Go Back" button—no skip option available
 - Informational detail cards explaining why access is blocked
 - Professional appearance matching system security dialogs
 
@@ -46,6 +46,9 @@ PhishEye combines machine learning with behavioral analysis to scan every URL yo
 - Domain age and SSL certificate validation
 - WHOIS lookups for registration anomalies
 - URL pattern and structure analysis
+- Google SafeBrowsing API
+- Open PageRank API
+- Tranco Top 1M List
 
 ## 📋 How It Works
 
@@ -60,9 +63,7 @@ Check blacklist? → Show strict enforcement warning
     ↓
 Check cache (7-day TTL)? → Use cached result
     ↓
-Send to ML backend (Flask server)
-    ↓
-Random Forest model extracts features
+Send to backend to scan (Flask server)
     ↓
 Classification: Phishing or Safe
     ↓
@@ -74,9 +75,8 @@ content.js displays appropriate warning or allows access
 ## 📊 Model Details
 
 **Training Data:**
-- 500,000+ labeled phishing URLs (sampled to 167,000 for faster iteration)
+- 167,000+ URLs to train on 
 - 80/20 train/test split
-- Imbalanced class handling with stratified sampling
 
 **Features Analyzed:**
 - Domain age and registration info
@@ -85,13 +85,13 @@ content.js displays appropriate warning or allows access
 - DNS records (MX, SPF, DKIM validation)
 - WHOIS registration patterns
 - Historical domain reputation
-- IP geolocation mismatches
+- Domain popularity
 
 **Model Architecture:**
 - Random Forest Classifier: 100 decision trees
 - Parallel processing (n_jobs=-1) for speed
 - Random state fixed for reproducibility
-- Alternative: DNS-based lightweight model for offline scoring
+- DNS-based lightweight model for offline scoring
 
 ## 🔧 Installation & Setup
 
@@ -149,6 +149,7 @@ chrome://extensions/
 - Click the PhishEye icon in your toolbar
 - Click "Open Setup Page" to verify backend connection
 - Try visiting a test phishing site (use caution!) or add URLs to your whitelist/blacklist
+- **Note:** The host should always be on when scaning
 
 ### System Requirements
 - **Browser:** Chrome 91+, Firefox 88+ (with manifest adaptation)
@@ -231,7 +232,7 @@ dnspython==2.8.0
 - **Scan Speed:** <500ms average (with caching)
 - **False Positive Rate:** ~2-3% (varies by dataset)
 - **Cache Hit Rate:** ~78% (after 7-day window)
-- **Memory Usage:** ~45MB (extension + cached data)
+- **Memory Usage:** ~130MB (Venv not included)
 - **Backend CPU:** <5% during idle scans
 
 **Real Talk:** Without caching, scanning every URL would crush your backend and slow down browsing. The 7-day TTL is a practical balance—most phishing URLs don't live long anyway, so stale data is less of a risk than you'd think.
@@ -240,10 +241,8 @@ dnspython==2.8.0
 
 ### Phishing Warning (Aggressive Design)
 You see this when we detect a phishing URL. Here's what makes it hard to ignore:
-- **Size:** Modal scales to 1.2x normal size (864px width)
 - **Color:** Bright red gradient button with white text
 - **Contrast:** 50% darker background overlay blocks site interaction
-- **Button Layout:** "Leave Site" button is massive (16px padding), "Skip" button is tiny (11px padding) and below it
 - **Animation:** Shield emoji shakes, red dot pulses, modal slides up
 - **Content:** Shows specific threats (Account Takeover, Financial Fraud, Identity Theft)
 
@@ -325,8 +324,7 @@ Response:
 - **No Real-Time Updates:** Model doesn't auto-update when new phishing discovered
 - **Limited Offline:** Only cached results available without internet
 - **Training Data:** Model trained on historical URLs—0-day phishing may slip through
-- **Regional Bias:** Training data primarily English-language sites
-- **Performance Trade-off:** Caching reduces accuracy slightly (stale data risk)
+- **Performance Trade-off:** Hosting an extension like this locally migth cause slight lag on low-end pc's
 
 ## 🤝 Contributing
 
@@ -360,13 +358,13 @@ Built with ❤️ by security enthusiasts who got tired of resetting compromised
 ---
 
 **Have questions? Found a phishing site that slipped through? Reach out:**
-- 📧 Email: your-email@example.com
-- 🐦 Twitter: @yourhandle
+- 📧 Email: mahmoudashraf5151@gmail.com
 - 💬 Issues: GitHub Issues tab
 - 💡 Ideas: GitHub Discussions
 
 ---
 
 **Ready to protect yourself? Install PhishEye today.**
+
 
 
