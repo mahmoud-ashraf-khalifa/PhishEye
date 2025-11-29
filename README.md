@@ -108,11 +108,13 @@ cd PhishEye
 # On Windows
 cd PhishEye\backend
 python -m venv PhishEye_venv
+PhishEye_venv\Scripts\activate
 pip install -r requirements.txt
 
 # On Mac/Linux
 cd PhishEye/backend
 python -m venv PhishEye_venv
+source PhishEye_venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -366,4 +368,5 @@ Built with ❤️ by security enthusiasts who got tired of resetting compromised
 ---
 
 **Ready to protect yourself? Install PhishEye today.**
+
 
