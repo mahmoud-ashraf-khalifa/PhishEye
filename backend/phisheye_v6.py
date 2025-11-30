@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # phisheye_v6.py
-# Fast PhishEye v6 — parallel, two-ML fusion, Tranco + OpenPageRank + Google SafeBrowsing
-# Requirements: requests, joblib, tldextract, python-whois (whois), dnspython, bs4
-# Place your models: model-20.pkl (URL ML), model-dns.pkl (DNS/WHOIS ML)
-# Place Tranco file: top-1m.csv (format: rank,domain)
+# PhishEye v6 — parallel, two-ML fusion, Tranco + OpenPageRank + Google SafeBrowsing
 
 import os
 import sys
