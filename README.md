@@ -117,14 +117,26 @@ python -m venv PhishEye_venv
 source PhishEye_venv/bin/activate
 pip install -r requirements.txt
 ```
+**3. Getting The API Keys**
 
-**3. Start the Flask Server**
+1. **Google SafeBrowsing API (Free)**
+  - Go to `https://console.cloud.google.com/projectcreate` and make a new project
+  - Go to `https://console.cloud.google.com/apis/library/safebrowsing.googleapis.com?project=!YOUR PROJECT ID!` and enable the safe browing API
+  - Go to `https://console.cloud.google.com/apis/credentials/wizard?api=safebrowsing.googleapis.com&project=!YOUR PROJECT ID!` check the public data button
+  - Copy the API key and paste it in `phisheye_v6.py`
+
+2. **Open PageRank API (Free)**
+  - Make an account on open pagerank `https://www.domcop.com/openpagerank/auth/signup`
+  - After verifying your email you will be sent an API key on your email
+  - Copy the API key and paste it in `phisheye_v6.py`
+
+**4. Start the Flask Server**
 ```bash
 python server.py
 # Server runs on http://localhost:5000
 ```
 
-**4. Load the Extension**
+**5. Load the Extension**
 
 Open Chrome and go to the Extension Manager:
 ```
@@ -145,7 +157,7 @@ chrome://extensions/
    - A PhishEye icon will appear in your Chrome toolbar (top-right)
    - If you see any errors, check that Flask server is running on localhost:5000
 
-**5. Test It Out**
+**6. Test It Out**
 - Click the PhishEye icon in your toolbar
 - Click "Open Setup Page" to verify backend connection
 - Try visiting a test phishing site (use caution!) or add URLs to your whitelist/blacklist
@@ -365,6 +377,7 @@ Built with ❤️ by security enthusiasts who got tired of resetting compromised
 ---
 
 **Ready to protect yourself? Install PhishEye today.**
+
 
 
 
