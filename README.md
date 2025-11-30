@@ -123,12 +123,12 @@ pip install -r requirements.txt
   - Go to `https://console.cloud.google.com/projectcreate` and make a new project
   - Go to `https://console.cloud.google.com/apis/library/safebrowsing.googleapis.com?project=!YOUR PROJECT ID!` and enable the safe browing API
   - Go to `https://console.cloud.google.com/apis/credentials/wizard?api=safebrowsing.googleapis.com&project=!YOUR PROJECT ID!` check the public data button
-  - Copy the API key and paste it in `phisheye_v6.py`
+  - Copy the API key and paste it in `phisheye_v6.py` line 27
 
 2. **Open PageRank API (Free)**
   - Make an account on open pagerank `https://www.domcop.com/openpagerank/auth/signup`
   - After verifying your email you will be sent an API key on your email
-  - Copy the API key and paste it in `phisheye_v6.py`
+  - Copy the API key and paste it in `phisheye_v6.py` line 26
 
 **4. Start the Flask Server**
 ```bash
@@ -377,6 +377,7 @@ Built with ❤️ by security enthusiasts who got tired of resetting compromised
 ---
 
 **Ready to protect yourself? Install PhishEye today.**
+
 
 
 
