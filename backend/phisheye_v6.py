@@ -26,8 +26,8 @@ from bs4 import BeautifulSoup
 # -------------------------
 # Config / placeholders
 # -------------------------
-OPENPAGERANK_API_KEY = os.getenv("OPENPAGERANK_API_KEY", "k88gkko44k80ogk0ggcwksk8go8kgo8cgc08sgsk")
-SAFEBROWSING_API_KEY = os.getenv("SAFEBROWSING_API_KEY", "AIzaSyDBfnp0Lq23eNwDl0EE7SUjlPEdxeaANhE")
+OPENPAGERANK_API_KEY = os.getenv("OPENPAGERANK_API_KEY", "!PUT YOUR API KEY HERE!") # dont change the ("OPENPAGERANK_API_KEY",
+SAFEBROWSING_API_KEY = os.getenv("SAFEBROWSING_API_KEY", "!PUT YOUR API KEY HERE!") # dont change the ("SAFEBROWSING_API_KEY",
 TRANCO_PATH = os.getenv("TRANCO_PATH", "top-1m.csv")     # required
 URL_MODEL_PATH = os.getenv("URL_MODEL_PATH", "model-20.pkl")
 DNS_MODEL_PATH = os.getenv("DNS_MODEL_PATH", "model-dns.pkl")
